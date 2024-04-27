@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { AuthProvider } from "@/app/_providers/auth"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -17,15 +18,15 @@ export const metadata: Metadata = {
     },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default function RootLayout({ children }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
     <html lang="en">
         <body className={`${inter.className} dark`}>
-            {children}
+            <AuthProvider>
+                {children}
+            </AuthProvider>
         </body>
     </html>
   )
