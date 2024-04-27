@@ -10,9 +10,11 @@ interface BookingItemProps {
 export const BookingItem = ({ title }: BookingItemProps) => {
     return (
         <section className="px-5 mt-6">
-            <h2 className="mb-2 text-lg font-normal uppercase text-gray-400">
-                {title}
-            </h2>
+            <div className="mb-2">
+                <h2 className="text-lg font-normal uppercase text-gray-400">
+                    {title}
+                </h2>
+            </div>
             <Card className="py-4 md:p-5">
                 <CardContent className="px-4 flex flex-row justify-between items-center gap-3">
                     <div>

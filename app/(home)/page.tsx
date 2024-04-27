@@ -1,7 +1,7 @@
 import { Header } from "@/app/_components/common/header"
-import { Search } from "@/app/_components/homepage/search"
+import { Search } from "@/app/_components/homePage/search"
 import { BookingItem } from "@/app/_components/common/booking-item"
-import { BarberShop } from "@/app/_components/homepage/barbershop";
+import { BarberShop } from "@/app/_components/homePage/barbershop";
 
 const HomePage = async () => {
     return (
