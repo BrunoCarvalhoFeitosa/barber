@@ -1,8 +1,10 @@
 "use client"
-import { useRouter } from "next/navigation"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { Button } from "@/app/_components/ui/button"
-import { ChevronLeftIcon, MenuIcon } from "lucide-react"
+import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet"
+import { HeaderSideMenu } from "@/app/_components/common/header-side-menu"
+import { AlignLeftIcon, ChevronLeftIcon } from "lucide-react"
 
 interface BarberShopImageProps {
     barbershopImageUrl: string
@@ -13,11 +15,7 @@ export const BarberShopImage = ({ barbershopImageUrl, barbershopName }: BarberSh
     const router = useRouter()
 
     const handleBackPageClick = () => {
-        router.back()
-    }
-
-    const handleOpenMenuClick = () => {
-
+        router.replace("/")
     }
 
     return (
@@ -27,7 +25,7 @@ export const BarberShopImage = ({ barbershopImageUrl, barbershopName }: BarberSh
                     src={barbershopImageUrl}
                     alt={barbershopName}
                     fill
-                    className="w-full h-full object-cover brightness-50 transition-transform duration-500 hover:scale-110 cursor-zoom-in"
+                    className="w-full h-full object-cover brightness-[0.18] transition-transform duration-500 hover:scale-110 cursor-zoom-in"
                 />
                 <div className="absolute top-4 md:top-6 left-4 md:left-6 z-10">
                     <Button
@@ -36,18 +34,23 @@ export const BarberShopImage = ({ barbershopImageUrl, barbershopName }: BarberSh
                         size="icon"
                         onClick={handleBackPageClick}
                     >
-                        <ChevronLeftIcon size={18} />
+                        <ChevronLeftIcon size={25} />
                     </Button>
                 </div>
                 <div className="absolute top-4 md:top-6 right-4 md:right-6 z-10">
-                    <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        onClick={handleOpenMenuClick}
-                    >
-                        <MenuIcon size={18} />
-                    </Button>
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button
+                                type="button"
+                                variant="outline"
+                                size="icon"
+                                className="w-10 h-10"
+                            >
+                                <AlignLeftIcon size={25} />
+                            </Button>
+                        </SheetTrigger>
+                        <HeaderSideMenu />
+                    </Sheet>
                 </div>
             </div>
         </section>

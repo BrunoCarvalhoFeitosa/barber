@@ -35,7 +35,7 @@ export const BarberShopItem = ({ barbershop }: BarberShopItemProps) => {
                         width={0}
                         height={0}
                         sizes="100vw"
-                        className="w-full h-[159px] rounded-tl-2xl rounded-tr-2xl object-cover transition-transform duration-200 hover:scale-125 cursor-zoom-in"
+                        className="w-full h-[159px] rounded-tl-2xl rounded-tr-2xl object-cover brightness-[0.18] transition-all duration-200 hover:brightness-50 hover:scale-125 cursor-zoom-in"
                     />
                 </div>
                 <div className="p-3 pb-4">

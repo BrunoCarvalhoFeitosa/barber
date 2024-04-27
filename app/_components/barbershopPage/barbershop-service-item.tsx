@@ -1,23 +1,29 @@
 "use client"
 import Image from "next/image"
+import { signIn } from "next-auth/react"
 import { Service } from "@prisma/client"
 import { Card, CardContent } from "@/app/_components/ui/card"
-import { Button } from "../ui/button"
+import { Button } from "@/app/_components/ui/button"
 
 interface BarbershopServiceItemProps {
     service: Service
+    isAuthenticated?: boolean
 }
 
-export const BarbershopServiceItem = ({ service }: BarbershopServiceItemProps) => {
-    console.log("service", service)
+export const BarbershopServiceItem = ({ service, isAuthenticated }: BarbershopServiceItemProps) => {
+    const handleBookingServiceClick = async () => {
+        if (!isAuthenticated) {
+            return await signIn("google")
+        }
+    }
 
     return (
         <Card className="md:min-w-[400px]">
             <CardContent className="p-4 flex items-center gap-4 md:gap-6 w-full">
                 <div className="relative w-[100px] h-[100px]">
                     <Image
-                        src={service.imageUrl}
                         fill
+                        src={service.imageUrl}
                         alt={service.name}
                         className="w-full h-full object-cover rounded-2xl"
                     />
@@ -38,7 +44,13 @@ export const BarbershopServiceItem = ({ service }: BarbershopServiceItemProps) =
                                 currency: "BRL"
                             }).format(Number(service.price))}
                         </h4>
-                        <Button variant="secondary" size="default">
+                        <Button
+                            type="button"
+                            variant="secondary"
+                            size="default"
+                            className={`${!isAuthenticated && "border border-red-700 text-red-500 cursor-not-allowed"}`}
+                            onClick={handleBookingServiceClick}
+                        >
                             Reservar
                         </Button>
                     </div>
