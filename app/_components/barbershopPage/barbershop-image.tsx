@@ -6,12 +6,12 @@ import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet"
 import { HeaderSideMenu } from "@/app/_components/common/header-side-menu"
 import { AlignLeftIcon, ChevronLeftIcon } from "lucide-react"
 
-interface BarberShopImageProps {
+interface BarbershopImageProps {
     barbershopImageUrl: string
     barbershopName: string
 }
 
-export const BarberShopImage = ({ barbershopImageUrl, barbershopName }: BarberShopImageProps) => {
+export const BarbershopImage = ({ barbershopImageUrl, barbershopName }: BarbershopImageProps) => {
     const router = useRouter()
 
     const handleBackPageClick = () => {

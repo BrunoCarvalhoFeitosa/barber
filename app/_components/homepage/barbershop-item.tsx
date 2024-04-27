@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link"
 import Image from "next/image"
 import { Barbershop } from "@prisma/client"
 import { Card, CardContent } from "@/app/_components/ui/card"
@@ -8,11 +7,11 @@ import { Button } from "@/app/_components/ui/button"
 import { StarIcon } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-interface BarberShopItemProps {
+interface BarbershopItemProps {
     barbershop: Barbershop
 }
 
-export const BarberShopItem = ({ barbershop }: BarberShopItemProps) => {
+export const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
     const router = useRouter()
 
     const handleBookingClick = () => {

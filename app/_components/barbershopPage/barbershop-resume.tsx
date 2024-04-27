@@ -1,12 +1,12 @@
 "use client"
 import { MapPinIcon, StarIcon } from "lucide-react"
 
-interface BarberShopResumeProps {
+interface BarbershopResumeProps {
     barbershopName: string
     barbershopAddress: string
 }
 
-export const BarberShopResume = ({ barbershopName, barbershopAddress }: BarberShopResumeProps) => {
+export const BarbershopResume = ({ barbershopName, barbershopAddress }: BarbershopResumeProps) => {
     return (
         <section className="w-full p-5">
             <div className="flex flex-col gap-1">

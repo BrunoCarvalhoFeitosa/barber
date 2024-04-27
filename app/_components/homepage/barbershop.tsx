@@ -1,11 +1,11 @@
 import { db } from "@/app/_lib/prisma"
-import { BarberShopItem } from "@/app/_components/homePage/barbershop-item"
+import { BarbershopItem } from "@/app/_components/homePage/barbershop-item"
 
-interface BarberShopProps {
+interface BarbershopProps {
     title: string
 }
 
-export const BarberShop = async ({ title }: BarberShopProps) => {
+export const Barbershop = async ({ title }: BarbershopProps) => {
     const barbershops = await db.barbershop.findMany({})
 
     return (
@@ -17,7 +17,7 @@ export const BarberShop = async ({ title }: BarberShopProps) => {
             </div>
             <div className="flex gap-4 overflow-x-auto custom-scrollbar">
                 {barbershops.map((barbershop) => (
-                    <BarberShopItem
+                    <BarbershopItem
                         key={barbershop.id}
                         barbershop={barbershop}
                     />

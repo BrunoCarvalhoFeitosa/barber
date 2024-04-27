@@ -1,7 +1,7 @@
 import { Header } from "@/app/_components/common/header"
 import { Search } from "@/app/_components/homePage/search"
 import { BookingItem } from "@/app/_components/common/booking-item"
-import { BarberShop } from "@/app/_components/homePage/barbershop";
+import { Barbershop } from "@/app/_components/homePage/barbershop";
 
 const HomePage = async () => {
     return (
@@ -10,8 +10,8 @@ const HomePage = async () => {
             <main className="pb-10">
                 <Search />
                 <BookingItem title="Agendamentos" />
-                <BarberShop title="Recomendados" />
-                <BarberShop title="Populares" />
+                <Barbershop title="Recomendados" />
+                <Barbershop title="Populares" />
             </main>
         </div>
     );
