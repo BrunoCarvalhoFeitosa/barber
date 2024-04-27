@@ -5,27 +5,16 @@ const prisma = new PrismaClient();
 async function seedDatabase() {
   try {
     const images = [
-      "https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png",
-      "https://utfs.io/f/45331760-899c-4b4b-910e-e00babb6ed81-16q.png",
-      "https://utfs.io/f/5832df58-cfd7-4b3f-b102-42b7e150ced2-16r.png",
-      "https://utfs.io/f/7e309eaa-d722-465b-b8b6-76217404a3d3-16s.png",
-      "https://utfs.io/f/178da6b6-6f9a-424a-be9d-a2feb476eb36-16t.png",
-      "https://utfs.io/f/2f9278ba-3975-4026-af46-64af78864494-16u.png",
-      "https://utfs.io/f/988646ea-dcb6-4f47-8a03-8d4586b7bc21-16v.png",
-      "https://utfs.io/f/60f24f5c-9ed3-40ba-8c92-0cd1dcd043f9-16w.png",
-      "https://utfs.io/f/f64f1bd4-59ce-4ee3-972d-2399937eeafc-16x.png",
-      "https://utfs.io/f/e995db6d-df96-4658-99f5-11132fd931e1-17j.png",
-      "https://utfs.io/f/3bcf33fc-988a-462b-8b98-b811ee2bbd71-17k.png",
-      "https://utfs.io/f/5788be0e-2307-4bb4-b603-d9dd237950a2-17l.png",
-      "https://utfs.io/f/6b0888f8-b69f-4be7-a13b-52d1c0c9cab2-17m.png",
-      "https://utfs.io/f/ef45effa-415e-416d-8c4a-3221923cd10f-17n.png",
-      "https://utfs.io/f/ef45effa-415e-416d-8c4a-3221923cd10f-17n.png",
-      "https://utfs.io/f/a55f0f39-31a0-4819-8796-538d68cc2a0f-17o.png",
-      "https://utfs.io/f/5c89f046-80cd-4443-89df-211de62b7c2a-17p.png",
-      "https://utfs.io/f/23d9c4f7-8bdb-40e1-99a5-f42271b7404a-17q.png",
-      "https://utfs.io/f/9f0847c2-d0b8-4738-a673-34ac2b9506ec-17r.png",
-      "https://utfs.io/f/07842cfb-7b30-4fdc-accc-719618dfa1f2-17s.png",
-      "https://utfs.io/f/0522fdaf-0357-4213-8f52-1d83c3dcb6cd-18e.png",
+      "https://utfs.io/f/20945d2a-8d38-4100-bb2e-ee9712aa9c25-vmbc7w.jpg",
+      "https://utfs.io/f/cc788b2b-7323-43ca-9ed4-5eefdde5fa34-vmbc7x.jpg",
+      "https://utfs.io/f/39a0dff6-a8cc-4e9c-86ed-da8e4c61b1f6-vmbc7y.jpg",
+      "https://utfs.io/f/7a777ed6-4ebc-4ba5-9a07-93d20457f734-vmbc7z.jpg",
+      "https://utfs.io/f/07769e87-6281-4b08-ac4b-663f60fc79ff-vmbc80.jpg",
+      "https://utfs.io/f/4d3a2ee9-d9a0-43c5-b683-3b13ac84438f-vmbc81.jpg",
+      "https://utfs.io/f/1ea74c59-382a-4ff0-9c56-ad6bde778e31-vmbc82.jpg",
+      "https://utfs.io/f/2cd2fc33-ebe3-4d23-8cbc-68bc321dc9ee-vmbc83.jpg",
+      "https://utfs.io/f/131b3e73-347d-425b-8271-872982630893-vmbc84.jpg",
+      "https://utfs.io/f/d80312e3-8912-4baa-a27c-ddac4efadc55-vmbc8q.jpg"
     ];
 
     const creativeNames = [
