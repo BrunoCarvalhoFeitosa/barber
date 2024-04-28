@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth"
 import { db } from "@/app/_lib/prisma"
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+import { authOptions } from "@/app/_lib/auth"
 import { redirect } from "next/navigation"
 import { Header } from "@/app/_components/common/header"
 import { Search } from "@/app/_components/homePage/search"
@@ -9,10 +9,6 @@ import { Bookings } from "@/app/_components/homePage/bookings"
 
 const HomePage = async () => {
     const session = await getServerSession(authOptions)
-
-    if (!session) {
-        return redirect("/")
-    }
 
     const confirmedBookings = session?.user ? await db.booking.findMany({
         where: {
