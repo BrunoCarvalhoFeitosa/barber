@@ -68,7 +68,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
             setSheetIsOpen(false)
             setHour(undefined)
             setDate(undefined)
-            toast("Reserva realizado com sucesso!", {
+            toast("Reserva realizado com sucesso.", {
                 description: format(formattedDate, "'para' dd 'de' MMMM 'às' HH':'mm'.'", {
                     locale: ptBR
                 }),
@@ -91,6 +91,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
 
         return generateDayTimeList(date).filter(time => {
             const timeHour = Number(time.split(":")[0])
+
             const timeMinutes = Number(time.split(":")[1])
 
             const booking = dayBookings.find(booking => {
