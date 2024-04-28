@@ -93,21 +93,23 @@ export const HeaderSideMenu = () => {
                     </Button>
                 </Link>
                 {data?.user && (
-                    <Button
-                        type="button"
-                        variant="outline"
-                        size="default"
-                        className="flex justify-start items-center gap-2"
-                    >
-                        <div>
-                            <CalendarIcon size={18} />
-                        </div>
-                        <div>
-                            <span>
-                                Agendamentos
-                            </span>
-                        </div>
-                    </Button>
+                    <Link href="/bookings" className="w-full">
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="default"
+                            className="flex justify-start items-center gap-2 w-full"
+                        >
+                            <div>
+                                <CalendarIcon size={18} />
+                            </div>
+                            <div>
+                                <span>
+                                    Agendamentos
+                                </span>
+                            </div>
+                        </Button>
+                    </Link>
                 )}
             </div>
         </SheetContent>
