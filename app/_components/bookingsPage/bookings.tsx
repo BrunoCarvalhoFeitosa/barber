@@ -1,10 +1,15 @@
-import { Booking } from "@prisma/client"
+import { Prisma } from "@prisma/client"
 import { BookingItem } from "@/app/_components/common/booking-item"
 
 interface BookingsProps {
     title: string
     isFinished?: boolean
-    bookings: Booking[]
+    bookings: Prisma.BookingGetPayload<{
+        include: {
+            service: true
+            barbershop: true
+        }
+    }>[]
 }
 
 export const Bookings = async ({ title, isFinished, bookings }: BookingsProps) => {
@@ -25,7 +30,7 @@ export const Bookings = async ({ title, isFinished, bookings }: BookingsProps) =
                 </div>
                 {bookings.length >= 1 && (        
                     <div className="flex flex-col gap-3">
-                        {bookings.map((booking: Booking) => (
+                        {bookings.map((booking) => (
                             <BookingItem key={booking.id} booking={booking} />
                         ))}
                     </div>
