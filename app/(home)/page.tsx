@@ -7,7 +7,7 @@ const HomePage = async () => {
     return (
         <div>
             <Header />
-            <main className="pb-10">
+            <main className="pb-14">
                 <Search />
                 <BookingItem title="Agendamentos" />
                 <Barbershop title="Recomendados" />
