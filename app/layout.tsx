@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { AuthProvider } from "@/app/_providers/auth"
+import { Toaster } from "@/app/_components/ui/sonner"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: Readonly<{
         <body className={`${inter.className} dark`}>
             <AuthProvider>
                 {children}
+                <Toaster duration={10000} />
             </AuthProvider>
         </body>
     </html>
