@@ -61,7 +61,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
             await saveBooking({
                 barbershopId: barbershop.id,
                 serviceId: service.id,
-                date: formattedDate,
+                date: formattedDate.toISOString(),
                 userId: (data.user as any).id
             })
 
