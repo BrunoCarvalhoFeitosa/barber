@@ -10,7 +10,7 @@ export const Search = () => {
     const { data } = useSession()
 
     return (
-        <section className="p-5">
+        <section className="pt-10 p-5">
             <div>
                 {data?.user ? (
                     <h2 className="text-xl">
