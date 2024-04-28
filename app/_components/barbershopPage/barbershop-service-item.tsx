@@ -125,12 +125,12 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
     return (
         <Card className="md:min-w-[400px]">
             <CardContent className="p-4 flex items-center gap-4 md:gap-6 w-full">
-                <div className="relative w-[100px] h-[100px]">
+                <div className="relative w-[100px] h-[100px] rounded-2xl overflow-hidden">
                     <Image
                         fill
                         src={service.imageUrl}
                         alt={service.name}
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full h-full object-cover rounded-2xl transition-transform duration-300 hover:scale-125 cursor-zoom-in"
                     />
                 </div>
                 <div className="flex-1">
