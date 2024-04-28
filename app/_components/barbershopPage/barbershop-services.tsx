@@ -1,16 +1,16 @@
 "use client"
-import { Service } from "@prisma/client"
+import { Barbershop, Service } from "@prisma/client"
 import { BarbershopServiceItem } from "@/app/_components/barbershopPage/barbershop-service-item"
-import { useSession } from "next-auth/react"
 
 interface BarbershopServicesProps {
     services: Service[]
+    barbershop: Barbershop
     isAuthenticated?: boolean
 }
 
-export const BarbershopServices = ({ services, isAuthenticated }: BarbershopServicesProps) => {
+export const BarbershopServices = ({ services, barbershop, isAuthenticated }: BarbershopServicesProps) => {
     return (
-        <section className="p-5">
+        <section className="p-5 pb-14">
             <div className="mb-2">
                 <h2 className="text-lg font-normal uppercase text-gray-400">
                     Serviços
@@ -21,6 +21,7 @@ export const BarbershopServices = ({ services, isAuthenticated }: BarbershopServ
                     <BarbershopServiceItem
                         key={service.id}
                         service={service}
+                        barbershop={barbershop}
                         isAuthenticated={isAuthenticated}
                     />
                 ))}

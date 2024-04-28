@@ -31,9 +31,19 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
     return (
         <main>
-            <BarbershopImage barbershopImageUrl={barbershop.imageUrl} barbershopName={barbershop.name} />
-            <BarbershopResume barbershopName={barbershop.name} barbershopAddress={barbershop.address} />
-            <BarbershopServices services={barbershop.services} isAuthenticated={!!session?.user}  />
+            <BarbershopImage
+                barbershopImageUrl={barbershop.imageUrl}
+                barbershopName={barbershop.name}
+            />
+            <BarbershopResume
+                barbershopName={barbershop.name}
+                barbershopAddress={barbershop.address}
+            />
+            <BarbershopServices
+                services={barbershop.services}
+                barbershop={barbershop}
+                isAuthenticated={!!session?.user}
+            />
         </main>
     )
 }

@@ -19,7 +19,7 @@ export const HeaderSideMenu = () => {
 
     return (
         <SheetContent className="p-0">
-            <SheetHeader className="p-5 text-left border-b border-secondary">
+            <SheetHeader className="py-6 px-5 text-left border-b border-secondary">
                 <SheetTitle>
                     Menu
                 </SheetTitle>
