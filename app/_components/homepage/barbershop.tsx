@@ -1,13 +1,12 @@
-import { db } from "@/app/_lib/prisma"
 import { BarbershopItem } from "@/app/_components/homePage/barbershop-item"
+import { Barbershop } from "@prisma/client"
 
 interface BarbershopProps {
     title: string
+    barbershops: Barbershop[]
 }
 
-export const Barbershop = async ({ title }: BarbershopProps) => {
-    const barbershops = await db.barbershop.findMany({})
-
+export const Barbershops = ({ title, barbershops }: BarbershopProps) => {
     return (
         <section className="w-full px-5 mt-6">
             <div className="mb-2">

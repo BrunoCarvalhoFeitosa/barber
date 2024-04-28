@@ -1,27 +1,36 @@
 import { getServerSession } from "next-auth"
 import { db } from "@/app/_lib/prisma"
 import { authOptions } from "@/app/_lib/auth"
-import { redirect } from "next/navigation"
 import { Header } from "@/app/_components/common/header"
 import { Search } from "@/app/_components/homePage/search"
-import { Barbershop } from "@/app/_components/homePage/barbershop"
+import { Barbershops } from "@/app/_components/homePage/barbershop"
 import { Bookings } from "@/app/_components/homePage/bookings"
 
 const HomePage = async () => {
     const session = await getServerSession(authOptions)
 
-    const confirmedBookings = session?.user ? await db.booking.findMany({
-        where: {
-            userId: (session.user as any).id,
-            date: {
-                gte: new Date()
-            }
-        },
-        include: {
-            service: true,
-            barbershop: true
-        }
-    }) : []
+    const [confirmedBookings, barbershops, recommendedBarbershops ] = await Promise.all([
+        session?.user ? db.booking.findMany({
+            where: {
+                userId: (session.user as any).id,
+                date: {
+                    gte: new Date(),
+                },
+            },
+            include: {
+                service: true,
+                barbershop: true,
+            },
+        }) : Promise.resolve([]),
+
+        db.barbershop.findMany({}),
+
+        db.barbershop.findMany({
+          orderBy: {
+            id: "asc",
+          },
+        }),
+      ])
 
     return (
         <div>
@@ -29,8 +38,8 @@ const HomePage = async () => {
             <main className="pb-14">
                 <Search />
                 <Bookings bookings={confirmedBookings} />
-                <Barbershop title="Recomendados" />
-                <Barbershop title="Populares" />
+                <Barbershops title="Recomendados" barbershops={barbershops} />
+                <Barbershops title="Populares" barbershops={recommendedBarbershops} />
             </main>
         </div>
     )
