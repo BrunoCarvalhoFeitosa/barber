@@ -61,7 +61,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
             await saveBooking({
                 barbershopId: barbershop.id,
                 serviceId: service.id,
-                date: formattedDate.toISOString(),
+                date: formattedDate,
                 userId: (data.user as any).id
             })
 
@@ -121,7 +121,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
         }
 
         refreshAvailableHours()
-    }, [date])
+    }, [date, barbershop.id])
 
     return (
         <Card className="md:min-w-[400px]">
