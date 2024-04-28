@@ -8,26 +8,28 @@ interface BookingsProps {
 }
 
 export const Bookings = async ({ title, isFinished, bookings }: BookingsProps) => {
-    console.log("bookings.length", bookings.length)
-    
     return (
-        <section className="py-6 px-5">
+        <section className="pb-6 px-5">
             <div className={`${isFinished ? "opacity-50": "opacity-100"}`}>
                 <div className="mb-2">
-                    <h2 className="text-lg font-normal uppercase text-gray-400">
-                        {title}
-                    </h2>
+                    {bookings.length >= 1 && (
+                        <h2 className="text-lg font-normal uppercase text-gray-400">
+                            {title}
+                        </h2>
+                    )}
                     {!bookings.length && (
-                        <p className="text-sm">
-                            Não há agendamentos pendentes.
-                        </p>
+                        <h2 className="text-sm">
+                            Nenhum agendamento pendente.
+                        </h2>
                     )}
                 </div>
-                <div className="flex flex-col gap-3">
-                    {bookings.map((booking: Booking) => (
-                        <BookingItem key={booking.id} booking={booking} />
-                    ))}
-                </div>
+                {bookings.length >= 1 && (        
+                    <div className="flex flex-col gap-3">
+                        {bookings.map((booking: Booking) => (
+                            <BookingItem key={booking.id} booking={booking} />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     )

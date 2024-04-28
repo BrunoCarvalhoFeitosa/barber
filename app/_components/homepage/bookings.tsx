@@ -14,7 +14,7 @@ export const Bookings = ({ bookings }: BookingsProps) => {
             <div>
                 <div className="mb-2">
                     <div className="flex flex-col">
-                        <div>
+                        <div className="mb-1">
                             <Link href="/bookings">
                                 <Button
                                     type="button"
