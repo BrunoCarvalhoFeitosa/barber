@@ -1,6 +1,6 @@
-const { PrismaClient } = require("@prisma/client");
+const { PrismaClient } = require("@prisma/client")
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
 async function seedDatabase() {
   try {
@@ -15,7 +15,7 @@ async function seedDatabase() {
       "https://utfs.io/f/2cd2fc33-ebe3-4d23-8cbc-68bc321dc9ee-vmbc83.jpg",
       "https://utfs.io/f/131b3e73-347d-425b-8271-872982630893-vmbc84.jpg",
       "https://utfs.io/f/d80312e3-8912-4baa-a27c-ddac4efadc55-vmbc8q.jpg"
-    ];
+    ]
 
     const creativeNames = [
       "Barbearia Vintage",
@@ -28,7 +28,7 @@ async function seedDatabase() {
       "Aparência Impecável",
       "Estilo Urbano",
       "Estilo Clássico",
-    ];
+    ]
 
     const addresses = [
       "Rua da Barbearia, 123",
@@ -41,7 +41,7 @@ async function seedDatabase() {
       "Praça da Aparência, 505",
       "Rua Urbana, 606",
       "Avenida Clássica, 707",
-    ];
+    ]
 
     const services = [
       {
@@ -80,14 +80,14 @@ async function seedDatabase() {
         price: 25.0,
         imageUrl: "https://utfs.io/f/8a457cda-f768-411d-a737-cdb23ca6b9b5-b3pegf.png",
       },
-    ];
+    ]
 
-    const barbershops = [];
+    const barbershops = []
 
     for (let i = 0; i < 10; i++) {
-      const name = creativeNames[i];
-      const address = addresses[i];
-      const imageUrl = images[i];
+      const name = creativeNames[i]
+      const address = addresses[i]
+      const imageUrl = images[i]
 
       const barbershop = await prisma.barbershop.create({
         data: {
@@ -95,7 +95,7 @@ async function seedDatabase() {
           address,
           imageUrl: imageUrl,
         },
-      });
+      })
 
       for (const service of services) {
         await prisma.service.create({
@@ -110,16 +110,16 @@ async function seedDatabase() {
             },
             imageUrl: service.imageUrl,
           },
-        });
+        })
       }
 
-      barbershops.push(barbershop);
+      barbershops.push(barbershop)
     }
 
-    await prisma.$disconnect();
+    await prisma.$disconnect()
   } catch (error) {
-    console.error("Erro ao criar as barbearias:", error);
+    console.error("Error while create barber", error)
   }
 }
 
-seedDatabase();
+seedDatabase()
