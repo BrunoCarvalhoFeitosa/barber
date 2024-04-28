@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/app/_components/ui/button"
-import { Header } from "./_components/common/header"
+import { Header } from "@/app/_components/common/header"
 
 const NotFoundPage = () => {
     return (
