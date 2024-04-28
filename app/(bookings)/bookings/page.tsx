@@ -3,8 +3,8 @@ import { authOptions } from "@/app/_lib/auth"
 import { redirect } from "next/navigation"
 import { db } from "@/app/_lib/prisma"
 import { Header } from "@/app/_components/common/header"
-import { BookingsTitle } from "@/app/_components/bookingsPage/bookings-title"
-import { Bookings } from "@/app/_components/bookingsPage/bookings"
+import { BookingsTitle } from "./_components/bookings-title"
+import { Bookings } from "./_components/bookings"
 
 const BookingsPage = async () => {
     const session = await getServerSession(authOptions)

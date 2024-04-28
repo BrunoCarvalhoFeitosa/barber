@@ -2,9 +2,9 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/_lib/auth"
 import { db } from "@/app/_lib/prisma"
 import { redirect } from "next/navigation"
-import { BarbershopImage } from "@/app/_components/barbershopPage/barbershop-image"
-import { BarbershopResume } from "@/app/_components/barbershopPage/barbershop-resume"
-import { BarbershopServices } from "@/app/_components/barbershopPage/barbershop-services"
+import { BarbershopImage } from "./_components/barbershop-image"
+import { BarbershopResume } from "./_components/barbershop-resume"
+import { BarbershopServices } from "./_components/barbershop-services"
 
 interface BarbershopPageProps {
     params: {

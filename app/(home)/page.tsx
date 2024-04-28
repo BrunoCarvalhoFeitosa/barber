@@ -2,9 +2,9 @@ import { getServerSession } from "next-auth"
 import { db } from "@/app/_lib/prisma"
 import { authOptions } from "@/app/_lib/auth"
 import { Header } from "@/app/_components/common/header"
-import { Search } from "@/app/_components/homePage/search"
-import { Barbershops } from "@/app/_components/homePage/barbershop"
-import { Bookings } from "@/app/_components/homePage/bookings"
+import { Search } from "./_components/search"
+import { Barbershops } from "./_components/barbershops"
+import { Bookings } from "./_components/bookings"
 
 const HomePage = async () => {
     const session = await getServerSession(authOptions)

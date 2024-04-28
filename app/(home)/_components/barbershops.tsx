@@ -1,4 +1,4 @@
-import { BarbershopItem } from "@/app/_components/homePage/barbershop-item"
+import { BarbershopItem } from "./barbershop-item"
 import { Barbershop } from "@prisma/client"
 
 interface BarbershopProps {
