@@ -22,7 +22,7 @@ export const Bookings = async ({ title, isFinished, bookings }: BookingsProps) =
                             {title}
                         </h2>
                     )}
-                    {!bookings.length && (
+                    {!bookings.length && title !=="Finalizados" && (
                         <h2 className="text-sm">
                             Nenhum agendamento pendente.
                         </h2>
