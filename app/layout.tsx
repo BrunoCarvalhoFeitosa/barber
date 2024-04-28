@@ -27,7 +27,10 @@ export default function RootLayout({ children }: Readonly<{
         <body className={`${inter.className} dark`}>
             <AuthProvider>
                 {children}
-                <Toaster duration={10000} />
+                <Toaster
+                    duration={10000}
+                    className="text-lg"
+                />
             </AuthProvider>
         </body>
     </html>

@@ -1,9 +1,10 @@
 "use client"
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { signIn, useSession } from "next-auth/react"
-import { Barbershop, Service } from "@prisma/client"
+import { Barbershop, Booking, Service } from "@prisma/client"
 import { saveBooking } from "@/app/_actions/save-booking"
+import { getDayBookings } from "@/app/_actions/get-day-bookings"
 import { toast } from "sonner"
 import { format, setHours, setMinutes } from "date-fns"
 import { ptBR } from "date-fns/locale"
@@ -28,10 +29,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
     const [hour, setHour] = useState<string | undefined>()
     const [submitIsLoading, setSubmitIsLoading] = useState<boolean>(false)
     const [sheetIsOpen, setSheetIsOpen] = useState<boolean>(false)
-
-    const timeList = useMemo(() => {
-        return date ? generateDayTimeList(date) : []
-    }, [date])
+    const [dayBookings, setDayBookings] = useState<Booking[]>([])
 
     const handleDateClick = (date: Date | undefined) => {
         setDate(date)
@@ -71,7 +69,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
             setHour(undefined)
             setDate(undefined)
             toast("Reserva realizado com sucesso!", {
-                description: format(formattedDate, "'para' dd 'de' MMMM 'às' HH': 'mm'.'", {
+                description: format(formattedDate, "'para' dd 'de' MMMM 'às' HH':'mm'.'", {
                     locale: ptBR
                 }),
                 action: {
@@ -85,6 +83,44 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
             setSubmitIsLoading(false)
         }
     }
+
+    const timeList = useMemo(() => {
+        if (!date) {
+            return []
+        }
+
+        return generateDayTimeList(date).filter(time => {
+            const timeHour = Number(time.split(":")[0])
+            const timeMinutes = Number(time.split(":")[1])
+
+            const booking = dayBookings.find(booking => {
+                const bookingHour = booking.date.getHours()
+                const bookingMinutes = booking.date.getMinutes()
+
+                return bookingHour === timeHour && bookingMinutes === timeMinutes
+            })
+
+            if (!booking) {
+                return true
+            }
+
+            return false
+        })
+    }, [date, dayBookings])
+
+    useEffect(() => {
+        if (!date) {
+            return
+        }
+
+        const refreshAvailableHours = async () => {
+            const bookedDays = await getDayBookings(barbershop.id, date)
+
+            setDayBookings(bookedDays)
+        }
+
+        refreshAvailableHours()
+    }, [date])
 
     return (
         <Card className="md:min-w-[400px]">
