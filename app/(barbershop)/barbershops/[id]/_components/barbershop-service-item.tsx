@@ -6,7 +6,7 @@ import { Barbershop, Booking, Service } from "@prisma/client"
 import { saveBooking } from "@/app/_actions/save-booking"
 import { getDayBookings } from "@/app/_actions/get-day-bookings"
 import { toast } from "sonner"
-import { format, setHours, setMinutes } from "date-fns"
+import { addDays, format, setHours, setMinutes } from "date-fns"
 import { ptBR } from "date-fns/locale"
 import { generateDayTimeList } from "@/app/_helpers/hours"
 import Image from "next/image"
@@ -173,7 +173,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
                                     selected={date}
                                     onSelect={handleDateClick}
                                     locale={ptBR}
-                                    fromDate={new Date()}
+                                    fromDate={addDays(new Date(), 1)}
                                     className="mt-6"
                                     styles={{
                                         head_cell: {

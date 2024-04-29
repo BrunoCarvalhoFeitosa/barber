@@ -19,7 +19,7 @@ export const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
     }
 
     return (
-        <Card className="mb-3 min-w-[200px] max-w-[200px] rounded-2xl overflow-hidden">
+        <Card className="mb-3 min-w-[47%] max-w-[47%] md:min-w-[200px] md:max-w-[200px] rounded-2xl overflow-hidden">
             <CardContent className="relative p-0">
                 <div className="absolute top-3 left-3 z-10">
                     <Badge variant="secondary" className="flex items-center gap-1 top-3 left-3 opacity-90">
