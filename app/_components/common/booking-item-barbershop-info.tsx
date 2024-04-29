@@ -18,7 +18,8 @@ export const BookingItemBarbershopInfo = ({ isBookingConfirmed, booking }: Booki
         <div className="flex items-center gap-2">
             <Avatar className="w-12 h-12 md:w-24 md:h-24 overflow-hidden">
                 <AvatarImage
-                    src={booking?.barbershop?.imageUrl ?? ""}
+                    src={booking.barbershop.imageUrl}
+                    alt={booking.barbershop.name}
                     className="object-cover transition-transform duration-200 group-hover:scale-125 cursor-zoom-in"
                 />
                 <AvatarFallback>

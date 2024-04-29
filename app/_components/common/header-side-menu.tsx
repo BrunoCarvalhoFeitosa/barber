@@ -28,7 +28,10 @@ export const HeaderSideMenu = () => {
                 <div className="py-6 px-5 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                         <Avatar>
-                            <AvatarImage src={data.user?.image ?? ""} />
+                            <AvatarImage
+                                src={data.user.image ?? ""}
+                                alt={data.user.name ?? "Foto de perfil usuário"}
+                            />
                         </Avatar>
                         <h3 className="font-bold">
                             {data.user.name}
