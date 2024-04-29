@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="[https://github.com/BrunoCarvalhoFeitosa/ecommerce-store](https://github.com/BrunoCarvalhoFeitosa/barber)">
+  <a href="https://github.com/BrunoCarvalhoFeitosa/barber">
     <img src="\public\favicon\favicon.ico" alt="Logo" width="48" weight="48" />
   </a>
 
