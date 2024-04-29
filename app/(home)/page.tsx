@@ -39,7 +39,7 @@ const HomePage = async () => {
             <main className="pb-14">
                 <WelcomeMessage />
                 <Search />
-                <Bookings bookings={confirmedBookings} />
+                {session?.user && <Bookings bookings={confirmedBookings} />}
                 <Barbershops title="Barbearias" barbershops={barbershops} />
                 <Barbershops title="Populares" barbershops={recommendedBarbershops} />
             </main>

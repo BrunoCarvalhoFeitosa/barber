@@ -27,7 +27,7 @@ export const Bookings = ({ bookings }: BookingsProps) => {
                                     size="default"
                                     className="p-0 underline hover:bg-transparent"
                                 >
-                                    Ver todos agendamentos
+                                    Visualizar meus agendamentos
                                 </Button>
                             </Link>
                         </div>
