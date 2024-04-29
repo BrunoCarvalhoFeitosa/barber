@@ -29,7 +29,7 @@ const BarbershopsPage = async ({ searchParams }: BarbershopsPageProps) => {
         <div>
             <Header />
             <main>
-                <Search />
+                <Search defaultValues={{ term: searchParams.search }} />
                 <BarbershopSearchedTitle searchParams={searchParams.search} barbershops={barbershops} />
                 <BarbershopSearchedItem barbershops={barbershops} />
             </main>
