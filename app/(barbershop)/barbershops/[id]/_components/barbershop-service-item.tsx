@@ -162,7 +162,7 @@ export const BarbershopServiceItem = ({ service, barbershop, isAuthenticated }: 
                                     Reservar
                                 </Button>
                             </SheetTrigger>
-                            <SheetContent className="p-0">
+                            <SheetContent className="p-0 overflow-y-auto pb-8">
                                 <SheetHeader className="py-6 px-5 text-left border-b border-solid border-secondary">
                                     <SheetTitle>
                                         Fazer reserva
