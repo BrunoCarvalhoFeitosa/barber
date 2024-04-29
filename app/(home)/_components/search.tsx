@@ -1,28 +1,26 @@
 "use client"
-import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { format } from "date-fns"
-import { ptBR } from "date-fns/locale"
 import { Button } from "@/app/_components/ui/button"
 import { Input } from "@/app/_components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/app/_components/ui/form"
 import { SearchIcon } from "lucide-react"
 
+interface SearchProps {
+    defaultValues?: z.infer<typeof formSchema>
+}
+
 const formSchema = z.object({
     term: z.string().trim().min(2, "Mínimo de 2 carácteres.").max(50),
 })
 
-export const Search = () => {
-    const { data } = useSession()
+export const Search = ({ defaultValues }: SearchProps) => {
     const router = useRouter()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
-        defaultValues: {
-          term: "",
-        },
+        defaultValues
     })
 
     const onSubmit = (data: z.infer<typeof formSchema>) => {
