@@ -1,5 +1,5 @@
-import { BarbershopItem } from "./barbershop-item"
 import { Barbershop } from "@prisma/client"
+import { BarbershopItem } from "@/app/_components/common/barbershop-item"
 
 interface BarbershopProps {
     title: string

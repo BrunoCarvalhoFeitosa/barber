@@ -1,6 +1,6 @@
 "use client"
 import { Barbershop } from "@prisma/client"
-import { BarbershopItem } from "@/app/(home)/_components/barbershop-item"
+import { BarbershopItem } from "@/app/_components/common/barbershop-item"
 
 interface BarbershopSearchedItemProps {
     barbershops: Barbershop[]
