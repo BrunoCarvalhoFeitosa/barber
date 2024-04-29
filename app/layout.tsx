@@ -7,7 +7,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-    title: "FSW Barber",
+    title: "Barbearia",
     description: "App para reserva de horários em uma barbearia.",
     authors: {
         name: "Bruno Carvaçlho Feitosa",
