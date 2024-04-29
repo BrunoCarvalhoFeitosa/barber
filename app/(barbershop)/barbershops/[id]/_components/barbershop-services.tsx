@@ -10,7 +10,7 @@ interface BarbershopServicesProps {
 
 export const BarbershopServices = ({ services, barbershop, isAuthenticated }: BarbershopServicesProps) => {
     return (
-        <section className="p-5 pb-14">
+        <section className="p-5">
             <div className="mb-2">
                 <h2 className="text-lg font-normal uppercase text-gray-400">
                     Serviços
