@@ -5,6 +5,7 @@ import { Header } from "@/app/_components/common/header"
 import { Search } from "./_components/search"
 import { Barbershops } from "./_components/barbershops"
 import { Bookings } from "./_components/bookings"
+import { WelcomeMessage } from "./_components/welcome-message"
 
 const HomePage = async () => {
     const session = await getServerSession(authOptions)
@@ -36,6 +37,7 @@ const HomePage = async () => {
         <div>
             <Header />
             <main className="pb-14">
+                <WelcomeMessage />
                 <Search />
                 <Bookings bookings={confirmedBookings} />
                 <Barbershops title="Recomendados" barbershops={barbershops} />

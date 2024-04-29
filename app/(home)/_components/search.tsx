@@ -30,30 +30,7 @@ export const Search = () => {
     }
 
     return (
-        <section className="pt-10 p-5">
-            <div>
-                {data?.user ? (
-                    <h2 className="text-xl">
-                        Olá, <strong>{data.user.name}!</strong>
-                    </h2>
-                ) : (
-                    <h2 className="text-xl">
-                        Olá!
-                    </h2>
-                )}
-                <div className="flex items-center gap-x-1 text-sm">
-                    <p className="capitalize">
-                        {format(new Date(), "EEEE','", {
-                            locale: ptBR
-                        })}
-                    </p>
-                    <p>
-                        {format(new Date(), "dd 'de' MMMM", {
-                            locale: ptBR
-                        })}.
-                    </p>
-                </div>
-            </div>
+        <section className="p-5">
             <div className="mt-6">
                 <Form {...form}>
                     <form
