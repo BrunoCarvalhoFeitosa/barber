@@ -13,7 +13,7 @@ export const BarbershopSearchedTitle = ({ searchParams, barbershops }: Barbersho
                 Resultados para &quot;{searchParams}&quot;
             </h1>
             <p className="text-sm text-gray-400">
-                ({barbershops.length}) resultados encontrados.
+                ({barbershops.length}) {barbershops.length > 1 ? "resultados encontrados" : "resultado encontrado"}.
             </p>
         </div>
     )
